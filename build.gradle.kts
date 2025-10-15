@@ -4,7 +4,8 @@ plugins {
 }
 
 group = "io.github.stefanmaric"
-version = "0.1.0-SNAPSHOT"
+// Allow overriding the version from the command line with -PreleaseVersion=1.2.3 (used by CI)
+version = (findProperty("releaseVersion") as String?) ?: "0.1.0-SNAPSHOT"
 
 val keycloakVersion = "26.3.4"
 
