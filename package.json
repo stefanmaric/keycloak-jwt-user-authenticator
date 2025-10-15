@@ -1,0 +1,33 @@
+{
+	"name": "keycloak-jwt-user-authenticator",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Delegate user authentication to trusted external systems using signed JWTs in links",
+	"engines": {
+		"node": "^24.8.0",
+		"pnpm": "^10.16.1"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "prettier --write \"src/**/*.java\"",
+		"format:check": "prettier --check \"src/**/*.java\""
+	},
+	"author": {
+		"name": "Stefan Maric",
+		"email": "me@stefanmaric.com",
+		"url": "https://github.com/stefanmaric"
+	},
+	"license": "MIT",
+	"packageManager": "pnpm@10.16.1+sha512.0e155aa2629db8672b49e8475da6226aa4bdea85fdcdfdc15350874946d4f3c91faaf64cbdc4a5d1ab8002f473d5c3fcedcd197989cf0390f9badd3c04678706",
+	"devDependencies": {
+		"prettier": "3.6.2",
+		"prettier-plugin-java": "2.7.5"
+	},
+	"prettier": {
+		"plugins": [
+			"prettier-plugin-java"
+		],
+		"useTabs": true,
+		"printWidth": 100
+	}
+}

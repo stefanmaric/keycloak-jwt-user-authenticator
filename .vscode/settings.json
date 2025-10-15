@@ -1,0 +1,15 @@
+{
+	// Ensure VS Code keeps Gradle project config current
+	"java.configuration.updateBuildConfiguration": "interactive",
+
+	// Use Prettier as the default formatter
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+
+	// Explicitly associate Java with Prettier (via prettier-plugin-java)
+	"[java]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+	"java.compile.nullAnalysis.mode": "automatic"
+}

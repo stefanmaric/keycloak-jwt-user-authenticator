@@ -1,0 +1,2 @@
+io.github.stefanmaric.keycloak.jwtuser.JwtUserAuthenticatorFactory
+io.github.stefanmaric.keycloak.jwtuser.UrlParamConditionFactory

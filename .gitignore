@@ -1,0 +1,34 @@
+# Node / PNPM
+node_modules/
+.pnpm-store/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+.DS_Store
+yarn-debug.log*
+yarn-error.log*
+.npm/
+.eslintcache
+
+# Java/Gradle build outputs
+.gradle/
+build/
+bin/
+out/
+target/
+classes/
+dist/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse/STS
+.classpath
+.project
+.settings/
+
+# Java crash logs
+hs_err_pid*
+replay_pid*
