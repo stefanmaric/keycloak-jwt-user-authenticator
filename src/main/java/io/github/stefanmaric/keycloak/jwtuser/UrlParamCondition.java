@@ -7,9 +7,11 @@ import org.keycloak.authentication.authenticators.conditional.ConditionalAuthent
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
 import org.keycloak.models.UserModel;
+import org.keycloak.protocol.oidc.endpoints.AuthorizationEndpoint;
 
 /**
- * Conditional authenticator that matches based on a URL query parameter.
+ * Conditional authenticator that matches based on a URL query parameter, or the same parameter
+ * of the authorization request that started the sign-in.
  *
  * Configuration:
  * - param: required query parameter name
@@ -48,6 +50,20 @@ public class UrlParamCondition implements ConditionalAuthenticator {
 			actual = query.getFirst(param);
 		} catch (Exception ignored) {
 			// ignore
+		}
+
+		// Conditions are evaluated again on every request of a sign-in, and the form posts after
+		// the first one no longer carry the authorization request's query. Keycloak keeps its
+		// parameters on the auth session: known ones under their own name, others prefixed.
+		var authSession = context.getAuthenticationSession();
+		if (!contains && authSession != null) {
+			actual = authSession.getClientNote(param);
+			if (actual == null) {
+				actual = authSession.getClientNote(
+					AuthorizationEndpoint.LOGIN_SESSION_NOTE_ADDITIONAL_REQ_PARAMS_PREFIX + param
+				);
+			}
+			contains = actual != null;
 		}
 
 		// If no value configured, only presence is required
